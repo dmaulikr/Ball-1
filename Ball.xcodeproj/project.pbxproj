@@ -133,6 +133,11 @@
 		A452B4E217709B7B00BA3661 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A452B4E117709B7B00BA3661 /* AppDelegate.m */; };
 		A452B4E517709B7B00BA3661 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A452B4E417709B7B00BA3661 /* HelloWorldLayer.m */; };
 		A452B4E817709B7B00BA3661 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A452B4E717709B7B00BA3661 /* IntroLayer.m */; };
+		A452B4F017709B9100BA3661 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = A452B4EE17709B9100BA3661 /* player.png */; };
+		A452B4F117709B9100BA3661 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = A452B4EF17709B9100BA3661 /* spider.png */; };
+		A452B4F317709B9900BA3661 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A452B4F217709B9900BA3661 /* Default-568h@2x.png */; };
+		A452B4F617709C7600BA3661 /* SettingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A452B4F517709C7500BA3661 /* SettingLayer.m */; };
+		A452B4F91770A65000BA3661 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A452B4F81770A65000BA3661 /* GameScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +403,13 @@
 		A452B4E417709B7B00BA3661 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		A452B4E617709B7B00BA3661 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		A452B4E717709B7B00BA3661 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		A452B4EE17709B9100BA3661 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		A452B4EF17709B9100BA3661 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
+		A452B4F217709B9900BA3661 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		A452B4F417709C7500BA3661 /* SettingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingLayer.h; sourceTree = "<group>"; };
+		A452B4F517709C7500BA3661 /* SettingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingLayer.m; sourceTree = "<group>"; };
+		A452B4F71770A65000BA3661 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		A452B4F81770A65000BA3661 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +472,10 @@
 				A452B4E117709B7B00BA3661 /* AppDelegate.m */,
 				A452B4E317709B7B00BA3661 /* HelloWorldLayer.h */,
 				A452B4E417709B7B00BA3661 /* HelloWorldLayer.m */,
+				A452B4F71770A65000BA3661 /* GameScene.h */,
+				A452B4F81770A65000BA3661 /* GameScene.m */,
+				A452B4F417709C7500BA3661 /* SettingLayer.h */,
+				A452B4F517709C7500BA3661 /* SettingLayer.m */,
 				A452B4E617709B7B00BA3661 /* IntroLayer.h */,
 				A452B4E717709B7B00BA3661 /* IntroLayer.m */,
 				A452B36917709B7600BA3661 /* Resources */,
@@ -473,7 +489,10 @@
 			isa = PBXGroup;
 			children = (
 				A452B36A17709B7600BA3661 /* Default.png */,
+				A452B4EE17709B9100BA3661 /* player.png */,
+				A452B4EF17709B9100BA3661 /* spider.png */,
 				A452B36C17709B7600BA3661 /* Default-Landscape~ipad.png */,
+				A452B4F217709B9900BA3661 /* Default-568h@2x.png */,
 				A452B36E17709B7600BA3661 /* fps_images.png */,
 				A452B37017709B7600BA3661 /* fps_images-hd.png */,
 				A452B37217709B7600BA3661 /* fps_images-ipadhd.png */,
@@ -895,6 +914,9 @@
 				A452B37F17709B7700BA3661 /* Icon@2x.png in Resources */,
 				A452B38217709B7700BA3661 /* iTunesArtwork in Resources */,
 				A452B4C017709B7A00BA3661 /* ChangeLog in Resources */,
+				A452B4F017709B9100BA3661 /* player.png in Resources */,
+				A452B4F117709B9100BA3661 /* spider.png in Resources */,
+				A452B4F317709B9900BA3661 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1031,8 @@
 				A452B4E217709B7B00BA3661 /* AppDelegate.m in Sources */,
 				A452B4E517709B7B00BA3661 /* HelloWorldLayer.m in Sources */,
 				A452B4E817709B7B00BA3661 /* IntroLayer.m in Sources */,
+				A452B4F617709C7600BA3661 /* SettingLayer.m in Sources */,
+				A452B4F91770A65000BA3661 /* GameScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

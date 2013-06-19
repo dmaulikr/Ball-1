@@ -9,6 +9,8 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
+#import "SettingLayer.h"
+#import "GameScene.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -40,66 +42,34 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
-		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director for the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
-		
-		
-		
-		//
-		// Leaderboards and Achievements
-		//
-		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-			achivementViewController.achievementDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achivementViewController animated:YES];
-			
-			[achivementViewController release];
-		}
-									   ];
-
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
-		}
-									   ];
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
-
+        CCLabelTTF *menuLabel = [CCLabelTTF labelWithString:@"主菜单" fontName:@"STHeitiJ-Light" fontSize:40];
+        menuLabel.position = ccp(160,440);
+        [self addChild:menuLabel];
+        
+        //设置CCMenuItemFont
+        [CCMenuItemFont setFontName:@"Helvetica-BoldOblique"];
+        [CCMenuItemFont setFontSize:26];
+        CCMenuItemFont *item1 = [CCMenuItemFont itemWithString:@"-> 开始" target:self selector:@selector(startGame:)];
+        CCMenuItemFont *item2 = [CCMenuItemFont itemWithString:@"-> 设置" target:self selector:@selector(setting:)];
+        
+        CCMenu *menu = [CCMenu menuWithItems:item1,item2, nil];
+        menu.position = CGPointMake(160, 300);
+        [menu alignItemsVertically];
+        
+        float delayTime = 0.3f;
+        
+        for (CCMenuItemFont *each in [menu children])
+        {
+            each.scaleX = 0.0f;
+            each.scaleY = 0.0f;
+            CCAction *action = [CCSequence actions:
+                                [CCDelayTime actionWithDuration:delayTime],
+                                [CCScaleTo actionWithDuration:0.5 scale:1.0], nil];
+            delayTime += 0.2f;
+            [each runAction:action];
+        }
+        
+        [self addChild:menu];
 	}
 	return self;
 }
@@ -113,6 +83,18 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+}
+
+- (void) startGame: (id) sender
+{
+    CCTransitionShrinkGrow *shrink = [CCTransitionShrinkGrow transitionWithDuration:1 scene:[GameScene scene]];
+    [[CCDirector sharedDirector] replaceScene:shrink];
+}
+
+- (void) setting: (id) sender
+{
+    CCTransitionShrinkGrow *shrink = [CCTransitionShrinkGrow transitionWithDuration:1 scene:[SettingLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:shrink];
 }
 
 #pragma mark GameKit delegate
